@@ -4,11 +4,24 @@ library(GGally)
 library(shiny)
 data(mtcars)
 
+# Convert variables to factor variables
+mtcars2 <- mtcars
+mtcars2$cyl <- as.factor(mtcars2$cyl)
+
+mtcars2$vs <- as.factor(mtcars2$vs)
+levels(mtcars2$vs) <- c("v","s")
+
+mtcars2$am <- as.factor(mtcars2$am)
+levels(mtcars2$am) <- c("auto","manual")
+
+mtcars2$gear <- as.factor(mtcars2$gear)
+mtcars2$carb <- as.factor(mtcars2$carb)
+
 shinyServer(function(input, output) { 
     output$edaPlot <- renderPlot({
-        ggpairs(data=mtcars,
-                columns=c(1,which(colnames(mtcars) %in% 
+        ggpairs(data=mtcars2,
+                columns=c(1,which(colnames(mtcars2) %in% 
                                   input$predictorVariables)),
-                colour=mtcars$am)
+                colour=mtcars2$am)
     })
 })
