@@ -1,30 +1,25 @@
+library(shiny)  
 
-# This is the user-interface definition of a Shiny web application.
-# You can find out more about building applications with Shiny here:
-#
-# http://shiny.rstudio.com
-#
-
-library(shiny)
-
-shinyUI(fluidPage(
-
-  # Application title
-  titlePanel("Old Faithful Geyser Data"),
-
-  # Sidebar with a slider input for number of bins
-  sidebarLayout(
+shinyUI(pageWithSidebar( 
+    
+    headerPanel("Multiple Linear Regression Model for mtcars Data Set"), 
+    
     sidebarPanel(
-      sliderInput("bins",
-                  "Number of bins:",
-                  min = 1,
-                  max = 50,
-                  value = 30)
+        checkboxGroupInput(predictorVariables <- "predictorVariables",
+                           label <- "mtcars data set MPG predictor variables",
+                           choices <- list("Number of cylinders" = "cyl", 
+                                           "Displacement (cu.in.)" = "disp",
+                                            "Gross horsepower" = "hp",
+                                           "Rear axle ratio" = "drat",
+                                           "Weight (lb/1000)" = "wt",
+                                           "1/4 mile time" = "qsec",
+                                           "V/S (inline engine" = "vs",
+                                           "Transmission Type (Automatic/Manual)" = "am",
+                                           "Number of forward gears" = "gear",
+                                           "Number of carburetors" = "carb"))
     ),
+    
+    mainPanel( 
 
-    # Show a plot of the generated distribution
-    mainPanel(
-      plotOutput("distPlot")
     )
-  )
 ))
