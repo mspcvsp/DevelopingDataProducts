@@ -20,6 +20,8 @@ shinyUI(pageWithSidebar(
     ),
     
     mainPanel( 
-
+        tabsetPanel(
+            tabPanel("EDA", plotOutput("edaPlot"))
+        )
     )
 ))
