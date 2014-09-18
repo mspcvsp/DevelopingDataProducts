@@ -21,7 +21,11 @@ shinyServer(function(input, output) {
     output$edaPlot <- renderPlot({
         ggpairs(data=mtcars2,
                 columns=c(1,which(colnames(mtcars2) %in% 
-                                  input$predictorVariables)),
+                                      input$predictorVariables)),
                 colour=mtcars2$am)
+    })
+    
+    output$segmentedData <- renderDataTable({
+        mtcars3 <- mtcars2[,colnames(mtcars2) %in% input$predictorVariables]
     })
 })

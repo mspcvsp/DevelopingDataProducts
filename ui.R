@@ -28,6 +28,7 @@ shinyUI(pageWithSidebar(
     
     mainPanel( 
         tabsetPanel(
+            tabPanel("Segmented data",dataTableOutput('segmentedData')),
             tabPanel("EDA", plotOutput("edaPlot"))
         )
     )
