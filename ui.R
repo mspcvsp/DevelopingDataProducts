@@ -16,7 +16,8 @@ shinyUI(pageWithSidebar(
                                            "V/S (inline engine" = "vs",
                                            "Transmission Type (Automatic/Manual)" = "am",
                                            "Number of forward gears" = "gear",
-                                           "Number of carburetors" = "carb"))
+                                           "Number of carburetors" = "carb")),
+        submitButton(text = "Apply Changes", icon = NULL)
     ),
     
     mainPanel( 
