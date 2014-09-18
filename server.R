@@ -17,15 +17,24 @@ levels(mtcars2$am) <- c("auto","manual")
 mtcars2$gear <- as.factor(mtcars2$gear)
 mtcars2$carb <- as.factor(mtcars2$carb)
 
+mtcars2$vehicle <- rownames(mtcars2)
+rownames(mtcars2) <- NULL
+
 shinyServer(function(input, output) { 
+    output$segmentedData <- renderDataTable({
+        predictorVariables <- colnames(mtcars2)
+
+        predictorVariables <- 
+            predictorVariables[predictorVariables %in% 
+                               input$predictorVariables]
+        
+        mtcars2[,c("vehicle", "mpg", predictorVariables)]
+    })
+    
     output$edaPlot <- renderPlot({
         ggpairs(data=mtcars2,
                 columns=c(1,which(colnames(mtcars2) %in% 
                                       input$predictorVariables)),
                 colour=mtcars2$am)
-    })
-    
-    output$segmentedData <- renderDataTable({
-        mtcars3 <- mtcars2[,colnames(mtcars2) %in% input$predictorVariables]
     })
 })
