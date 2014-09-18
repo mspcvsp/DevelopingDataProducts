@@ -37,4 +37,14 @@ shinyServer(function(input, output) {
                                       input$predictorVariables)),
                 colour=mtcars2$am)
     })
+    
+    # https://groups.google.com/forum/#!topic/shiny-discuss/VZ2Fd8xZMSY
+    output$lmSummary <- renderPrint({
+        mtcars3 <- mtcars2[,c("mpg", predictorVariables)]
+        
+        predictorVariables
+        
+        modelFit <- lm(mpg ~ ., data=mtcars3)
+        print(summary(modelFit))
+    })
 })
