@@ -30,6 +30,17 @@ shinyUI(pageWithSidebar(
     mainPanel( 
         tabsetPanel(
             tabPanel("Segmented data",
+                     div(class="header", checked=NA,
+                         p(paste("This tab displays the vehicle, its fuel ",
+                                 "efficiency, and the predictor variables",
+                                 "selected by a user. The following ",
+                                 "R commands display additional information",
+                                 "about this data set:")),
+                           tags$ol(
+                               tags$li("library(datasets)"), 
+                               tags$li("data(mtcars)"), 
+                               tags$li("?mtcars")
+                           )),
                      dataTableOutput('segmentedData')),
             tabPanel("EDA",
                      h2("Exploratory Data Analysis"),
