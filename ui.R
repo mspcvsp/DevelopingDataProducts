@@ -12,7 +12,8 @@ checkBoxChoices <- list("Number of cylinders" = "cyl",
                         "Number of carburetors" = "carb")
 
 initialSelections <- list("Gross horsepower" = "hp",
-                          "Weight (lb/1000)" = "wt")
+                          "Weight (lb/1000)" = "wt",
+                          "Transmission Type (Automatic/Manual)" = "am")
 
 shinyUI(pageWithSidebar( 
     
@@ -54,7 +55,10 @@ shinyUI(pageWithSidebar(
                          checked=NA,
                          a(href=paste0("http://faculty.mccombs.utexas.edu/carlos.",
                                        "carvalho/teaching/lecture3_Dallas.pdf"),
-                           "Multipe Linear Regression Tutorial")
+                           paste("Dr. Carlos Carvalho (The University of Texas",
+                                 "McCombs School of Business) lecture:",
+                                 "'Mutliple Linear Regession Model: Estimation",
+                                 "Inference, & F-tests"))
                      ),
                      verbatimTextOutput("lmSummary"))
         )
