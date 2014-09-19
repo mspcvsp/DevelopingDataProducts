@@ -33,11 +33,20 @@ shinyUI(pageWithSidebar(
                      div(class="header",
                          checked=NA,
                          a(href="http://www.inside-r.org/r-doc/datasets/mtcars",
-                           "mtcars data set description")
+                           paste("This panel displays the selected predictor",
+                                 "variables from the mtcars data set."))
                      ),
                      dataTableOutput('segmentedData')),
             tabPanel("EDA",
                      h2("Exploratory Data Analysis"),
+                     div(class="header",
+                         checked=NA,
+                         a(href=paste0("http://tgmstat.wordpress.com/2013",
+                                       "/11/13/plot-matrix-with-the-r-",
+                                       "package-ggally/"),
+                           paste("This plot is generated using the ggpairs()",
+                                 "function from the GGally package."))
+                     ),
                      plotOutput("edaPlot")),
             tabPanel("lm() Summary", verbatimTextOutput("lmSummary"))
         )

@@ -34,8 +34,7 @@ shinyServer(function(input, output) {
     output$edaPlot <- renderPlot({
         ggpairs(data=mtcars2,
                 columns=c(1,which(colnames(mtcars2) %in% 
-                                      input$predictorVariables)),
-                colour=mtcars2$am)
+                                      input$predictorVariables)))
     })
     
     # https://groups.google.com/forum/#!topic/shiny-discuss/VZ2Fd8xZMSY
