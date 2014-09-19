@@ -48,7 +48,15 @@ shinyUI(pageWithSidebar(
                                  "function from the GGally package."))
                      ),
                      plotOutput("edaPlot")),
-            tabPanel("lm() Summary", verbatimTextOutput("lmSummary"))
+            tabPanel("lm() Summary",
+                     h2("Multiple Linear Regression Model Fit"),
+                     div(class="header",
+                         checked=NA,
+                         a(href=paste0("http://faculty.mccombs.utexas.edu/carlos.",
+                                       "carvalho/teaching/lecture3_Dallas.pdf"),
+                           "Multipe Linear Regression Tutorial")
+                     ),
+                     verbatimTextOutput("lmSummary"))
         )
     )
 ))
