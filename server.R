@@ -40,10 +40,7 @@ shinyServer(function(input, output) {
     
     # https://groups.google.com/forum/#!topic/shiny-discuss/VZ2Fd8xZMSY
     output$lmSummary <- renderPrint({
-        mtcars3 <- mtcars2[,c("mpg", predictorVariables)]
-        
-        predictorVariables
-        
+        mtcars3 <- mtcars2[,c("mpg", input$predictorVariables)]        
         modelFit <- lm(mpg ~ ., data=mtcars3)
         print(summary(modelFit))
     })

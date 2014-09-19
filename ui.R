@@ -16,7 +16,7 @@ initialSelections <- list("Gross horsepower" = "hp",
 
 shinyUI(pageWithSidebar( 
     
-    headerPanel("Multiple Linear Regression Model for mtcars Data Set"), 
+    headerPanel("Multiple Linear Regression Model Example"), 
     
     sidebarPanel(
         checkboxGroupInput(predictorVariables <- "predictorVariables",
@@ -28,7 +28,14 @@ shinyUI(pageWithSidebar(
     
     mainPanel( 
         tabsetPanel(
-            tabPanel("Segmented data",dataTableOutput('segmentedData')),
+            tabPanel("Segmented data",
+                     # http://shiny.rstudio.com/articles/html-tags.html
+                     div(class="header",
+                         checked=NA,
+                         a(href="http://www.inside-r.org/r-doc/datasets/mtcars",
+                           "mtcars data set description")
+                     ),
+                     dataTableOutput('segmentedData')),
             tabPanel("EDA", plotOutput("edaPlot")),
             tabPanel("lm() Summary", verbatimTextOutput("lmSummary"))
         )
