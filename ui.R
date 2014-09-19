@@ -6,7 +6,7 @@ checkBoxChoices <- list("Number of cylinders" = "cyl",
                         "Rear axle ratio" = "drat",
                         "Weight (lb/1000)" = "wt",
                         "1/4 mile time" = "qsec",
-                        "V/S (inline engine" = "vs",
+                        "V/S (S: inline engine)" = "vs",
                         "Transmission Type (Automatic/Manual)" = "am",
                         "Number of forward gears" = "gear",
                         "Number of carburetors" = "carb")
@@ -65,7 +65,24 @@ shinyUI(pageWithSidebar(
                                  "fuel efficiency at the 5% level."))),
                      verbatimTextOutput("lmSummary")),
             tabPanel("lm() Output Diagnostics",
-                     h2("Multiple Linear Regression Model Diagnostics"),
+                     div(class="edaTab", checked=NA,
+                          h3("Multiple Linear Regression Model Diagnostics"),
+                          p(paste("This plot includes the following multiple",
+                                  "linear regression model diagnostic sub-",
+                                  "plots:")),
+                         tags$ol(
+                             tags$li("Residuals vs. Fitted"), 
+                             tags$li("Normal Q-Q"), 
+                             tags$li("Scale-Location"),
+                             tags$li("Residuals vs. Leverage")
+                         ),
+                         p(paste("Since the ideal residuals of a linear",
+                                 "predictor are normally distributed",
+                                 "the Normal Q-Q sub-plot illustrates whether",
+                                 "or not this condition is met. Also, ",
+                                 "additional information regarding regression",
+                                 "model diagnostics is available on the",
+                                 "internet."))),
                      plotOutput("lmModelDiagnostics"))
         )
     )
