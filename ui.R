@@ -51,7 +51,7 @@ shinyUI(pageWithSidebar(
                                  "it may take several seconds to render."))
                      ),
                      plotOutput("edaPlot")),
-            tabPanel("lm() Summary",
+            tabPanel("lm() Output Summary",
                      h2("Multiple Linear Regression Model Fit"),
                      div(class="header",
                          checked=NA,
@@ -62,7 +62,9 @@ shinyUI(pageWithSidebar(
                                  "'Mutliple Linear Regession Model: Estimation",
                                  "Inference, & F-tests"))
                      ),
-                     verbatimTextOutput("lmSummary"))
+                     verbatimTextOutput("lmSummary")),
+            tabPanel("lm() Output Diagnostics",
+                     plotOutput("lmModelDiagnostics"))
         )
     )
 ))
