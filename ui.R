@@ -36,7 +36,9 @@ shinyUI(pageWithSidebar(
                            "mtcars data set description")
                      ),
                      dataTableOutput('segmentedData')),
-            tabPanel("EDA", plotOutput("edaPlot")),
+            tabPanel("EDA",
+                     h2("Exploratory Data Analysis"),
+                     plotOutput("edaPlot")),
             tabPanel("lm() Summary", verbatimTextOutput("lmSummary"))
         )
     )
