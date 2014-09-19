@@ -64,6 +64,14 @@ shinyUI(pageWithSidebar(
                      ),
                      verbatimTextOutput("lmSummary")),
             tabPanel("lm() Output Diagnostics",
+                     h2("Multiple Linear Regression Model Diagnostics"),
+                     div(class="header",
+                         checked=NA,
+                         a(href=paste0("http://socserv.socsci.mcmaster.ca",
+                                       "/jfox/Courses/Brazil-2009/",
+                                       "slides-handout.pdf"),
+                           paste("Dr. John Fox (McMaster University) ",
+                                 "Regression Diagnostics Lecture"))),
                      plotOutput("lmModelDiagnostics"))
         )
     )

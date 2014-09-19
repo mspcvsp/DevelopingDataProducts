@@ -52,3 +52,4 @@ shinyServer(function(input, output) {
         plot(modelFit)
     })
 })
+
