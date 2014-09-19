@@ -43,4 +43,12 @@ shinyServer(function(input, output) {
         modelFit <- lm(mpg ~ ., data=mtcars3)
         print(summary(modelFit))
     })
+    
+    output$lmModelDiagnostics <- renderPlot({
+        mtcars3 <- mtcars2[,c("mpg", input$predictorVariables)]        
+        modelFit <- lm(mpg ~ ., data=mtcars3)
+        
+        par(mfrow=c(2,2))
+        plot(modelFit)
+    })
 })
