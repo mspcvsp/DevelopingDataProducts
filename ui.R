@@ -46,7 +46,9 @@ shinyUI(pageWithSidebar(
                                        "/11/13/plot-matrix-with-the-r-",
                                        "package-ggally/"),
                            paste("This plot is generated using the ggpairs()",
-                                 "function from the GGally package."))
+                                 "function from the GGally package. Depending",
+                                 "on the number of predictor variable selected",
+                                 "it may take several seconds to render."))
                      ),
                      plotOutput("edaPlot")),
             tabPanel("lm() Summary",
