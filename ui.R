@@ -72,6 +72,14 @@ shinyUI(pageWithSidebar(
                                        "slides-handout.pdf"),
                            paste("Dr. John Fox (McMaster University) ",
                                  "Regression Diagnostics Lecture"))),
+                     div(class="header",
+                         checked=NA,
+                         a(href=paste0("http://polisci.msu.edu/jacoby/icpsr",
+                                       "/regress3/lectures/week3/",
+                                       "11.Outliers.pdf"),
+                           paste("Dr. William G. Jacoby (Michigan State ",
+                                 "University) lecture 'Regression III: ",
+                                 "Advanced Methods'"))),
                      plotOutput("lmModelDiagnostics"))
         )
     )
