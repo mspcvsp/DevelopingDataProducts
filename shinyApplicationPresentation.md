@@ -78,4 +78,13 @@ summary(modelFit)
   car's fuel efficiency at the 5% level
 
 ---
-## Diagnose Multiple Linear Regression Model
+## Diagnose Model Fit
+
+```r
+par(mfrow=c(2,2),bg="white")
+plot(modelFit)
+```
+
+![plot of chunk diagnoseMultipleLinearRegressionModel](assets/fig/diagnoseMultipleLinearRegressionModel.png) 
+- Linear regression model residuals should be normally distributed
+  * [Normal Q-Q plot](http://socserv.socsci.mcmaster.ca/jfox/Courses/Brazil-2009/slides-handout.pdf) illustrates whether or not this condition is met

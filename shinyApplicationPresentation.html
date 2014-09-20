@@ -98,8 +98,21 @@ car&#39;s fuel efficiency at the 5% level</li>
 
 </section>
 <section class='' data-state='' id='slide-5'>
-  <h2>Diagnose Multiple Linear Regression Model</h2>
-  
+  <h2>Diagnose Model Fit</h2>
+  <pre><code class="r">par(mfrow=c(2,2),bg=&quot;white&quot;)
+plot(modelFit)
+</code></pre>
+
+<p><img src="assets/fig/diagnoseMultipleLinearRegressionModel.png" alt="plot of chunk diagnoseMultipleLinearRegressionModel"> </p>
+
+<ul>
+<li>Linear regression model residuals should be normally distributed
+
+<ul>
+<li><a href="http://socserv.socsci.mcmaster.ca/jfox/Courses/Brazil-2009/slides-handout.pdf">Normal Q-Q plot</a> illustrates whether or not this condition is met</li>
+</ul></li>
+</ul>
+
 </section>
     </div>
   </div>
