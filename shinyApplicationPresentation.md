@@ -40,8 +40,8 @@ ggpairs(mtcars2[,c(1,4,6,9)])
 ```
 
 ![plot of chunk exploratoryDataAnalysis](assets/fig/exploratoryDataAnalysis.png) 
-- `ggpairs()` pairs plot illustrates relationship between the response (i.e. 
-`mpg`) and predictor variables selected by a user
+- `ggpairs()` pairs plot illustrates the relationships between the response 
+(i.e. `mpg`) and predictor variables selected by a user
 
 ---
 ## Fit Multiple Linear Regression Model

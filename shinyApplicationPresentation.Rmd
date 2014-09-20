@@ -40,8 +40,8 @@ mtcars2$am <- as.factor(mtcars2$am)
 levels(mtcars2$am) <- c("auto","manual")
 ggpairs(mtcars2[,c(1,4,6,9)])
 ```
-- `ggpairs()` pairs plot illustrates relationship between the response (i.e. 
-`mpg`) and predictor variables selected by a user
+- `ggpairs()` pairs plot illustrates the relationships between the response 
+(i.e. `mpg`) and predictor variables selected by a user
 
 ---
 ## Fit Multiple Linear Regression Model
