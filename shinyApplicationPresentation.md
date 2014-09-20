@@ -29,7 +29,8 @@ datasciencespm
 ---
 ## Perform Exploratory Data Analysis
 
-```{r exploratoryDataAnalysis, echo=TRUE, fig.height=5.5, fig.width=5.5}
+
+```r
 library(GGally)
 data(mtcars)
 mtcars2 <- mtcars
@@ -37,14 +38,40 @@ mtcars2$am <- as.factor(mtcars2$am)
 levels(mtcars2$am) <- c("auto","manual")
 ggpairs(mtcars2[,c(1,4,6,9)])
 ```
+
+![plot of chunk exploratoryDataAnalysis](assets/fig/exploratoryDataAnalysis.png) 
 - `ggpairs()` pairs plot illustrates relationship between the response (i.e. 
 `mpg`) and predictor variables selected by a user
 
 ---
 ## Fit Multiple Linear Regression Model
-```{r fitMultipleLinearRegressionModel, echo=TRUE}
+
+```r
 modelFit <- lm(mpg ~ hp + wt + am, data=mtcars2)
 summary(modelFit)
+```
+
+```
+## 
+## Call:
+## lm(formula = mpg ~ hp + wt + am, data = mtcars2)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -3.422 -1.792 -0.379  1.225  5.532 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) 34.00288    2.64266   12.87  2.8e-13 ***
+## hp          -0.03748    0.00961   -3.90  0.00055 ***
+## wt          -2.87858    0.90497   -3.18  0.00357 ** 
+## ammanual     2.08371    1.37642    1.51  0.14127    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 2.54 on 28 degrees of freedom
+## Multiple R-squared:  0.84,	Adjusted R-squared:  0.823 
+## F-statistic:   49 on 3 and 28 DF,  p-value: 2.91e-11
 ```
 - `summary(modelFit)` includes the calculation of the [t-score P(>|t|)](http://www.ats.ucla.edu/stat/stata/output/reg_output.htm)
   * Predictors whose t-score is less than 0.05 are significant predictors of a
