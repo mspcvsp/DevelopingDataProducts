@@ -1,0 +1,48 @@
+---
+title       : Multiple Linear Regression Model Example
+subtitle    : 
+author      : datasciencespm
+job         : 
+framework   : revealjs
+highlighter : highlight.js
+hitheme     : zenburn
+widgets     : [mathjax, bootstrap]
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+# Multiple Linear Regression Model Example
+datasciencespm  
+09/20/2014
+
+---
+## Shiny Application Overview
+
+![Shiny Application Flow Diagram](./assets/fig/flowDiagram.png)
+
+- Need: Simplify predictor variable selection process 
+- Approach: Implement [Shiny application](https://datasciencespm.shinyapps.io/DevelopingDataProducts/) with the following functionality
+  * Select & display predictor variables
+  * Perform exploratory data analysis
+  * Fit & diagnose a multiple linear regression model
+
+---
+## Perform Exploratory Data Analysis
+
+```{r exploratoryDataAnalysis, echo=TRUE, fig.height=5.5, fig.width=5.5}
+library(GGally)
+data(mtcars)
+mtcars2 <- mtcars
+mtcars2$am <- as.factor(mtcars2$am)
+levels(mtcars2$am) <- c("auto","manual")
+ggpairs(mtcars2[,c(1,4,6,9)])
+```
+- `ggpairs()` pairs plot illustrates relationship between the response (i.e. 
+`mpg`) and predictor variables selected by a user
+
+---
+## Fit Multiple Linear Regression Model
+```{r fitMultipleLinearRegressionModel, echo=TRUE}
+modelFit <- lm(mpg ~ hp + wt + am, data=mtcars2)
+summary(modelFit)
+```

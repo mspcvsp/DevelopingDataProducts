@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Multiple Linear Regression Model Example</title>
+  <meta name="description" content="">
+  <meta name="author" content="datasciencespm">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/reveal.min.css">
+  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/theme/default.css" id="theme">
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" id="theme">
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->  <link rel="stylesheet" href = "libraries/widgets/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class='' data-state='' id='slide-1'>
+  <h1>Multiple Linear Regression Model Example</h1>
+  <p>datasciencespm<br>
+09/20/2014</p>
+
+</section>
+<section class='' data-state='' id='slide-2'>
+  <h2>Shiny Application Overview</h2>
+  <p><img src="./assets/fig/flowDiagram.png" alt="Shiny Application Flow Diagram"></p>
+
+<ul>
+<li>Need: Simplify predictor variable selection process </li>
+<li>Approach: Implement <a href="https://datasciencespm.shinyapps.io/DevelopingDataProducts/">Shiny application</a> with the following functionality
+
+<ul>
+<li>Select &amp; display predictor variables</li>
+<li>Perform exploratory data analysis</li>
+<li>Fit &amp; diagnose a multiple linear regression model</li>
+</ul></li>
+</ul>
+
+</section>
+<section class='' data-state='' id='slide-3'>
+  <h2>Perform Exploratory Data Analysis</h2>
+  <pre><code class="r">library(GGally)
+data(mtcars)
+mtcars2 &lt;- mtcars
+mtcars2$am &lt;- as.factor(mtcars2$am)
+levels(mtcars2$am) &lt;- c(&quot;auto&quot;,&quot;manual&quot;)
+ggpairs(mtcars2[,c(1,4,6,9)])
+</code></pre>
+
+<p><img src="assets/fig/exploratoryDataAnalysis.png" alt="plot of chunk exploratoryDataAnalysis"> </p>
+
+<ul>
+<li><code>ggpairs()</code> pairs plot illustrates relationship between the response (i.e. 
+<code>mpg</code>) and predictor variables selected by a user</li>
+</ul>
+
+</section>
+<section class='' data-state='' id='slide-4'>
+  <h2>Fit Multiple Linear Regression Model</h2>
+  <pre><code class="r">modelFit &lt;- lm(mpg ~ hp + wt + am, data=mtcars2)
+summary(modelFit)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ hp + wt + am, data = mtcars2)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -3.422 -1.792 -0.379  1.225  5.532 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 34.00288    2.64266   12.87  2.8e-13 ***
+## hp          -0.03748    0.00961   -3.90  0.00055 ***
+## wt          -2.87858    0.90497   -3.18  0.00357 ** 
+## ammanual     2.08371    1.37642    1.51  0.14127    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.54 on 28 degrees of freedom
+## Multiple R-squared:  0.84,   Adjusted R-squared:  0.823 
+## F-statistic:   49 on 3 and 28 DF,  p-value: 2.91e-11
+</code></pre>
+
+</section>
+    </div>
+  </div>
+</body>
+  <script src="libraries/frameworks/revealjs/lib/js/head.min.js"></script>
+  <script src="libraries/frameworks/revealjs/js/reveal.min.js"></script>
+  <script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    theme: Reveal.getQueryHash().theme || 'default', 
+    transition: Reveal.getQueryHash().transition || 'default', 
+    dependencies: [
+    // Cross-browser shim that fully implements classList -
+    // https://github.com/eligrey/classList.js/
+      { src: 'libraries/frameworks/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList;}},
+      // Zoom in and out with Alt+click
+      { src: 'libraries/frameworks/revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Speaker notes
+      { src: 'libraries/frameworks/revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Remote control your reveal.js presentation using a touch device
+      //{ src: 'libraries/frameworks/revealjs/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+  });
+  </script>  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script> -->
+<script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<script>  
+$(function (){ 
+  $("#example").popover(); 
+  $("[rel='tooltip']").tooltip(); 
+});  
+</script>  
+<!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+ 
+
+</html>
