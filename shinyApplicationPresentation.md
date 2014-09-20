@@ -81,7 +81,7 @@ summary(modelFit)
 ## Diagnose Model Fit
 
 ```r
-par(mfrow=c(2,2),bg="white")
+par(mfrow=c(1,4),bg="white")
 plot(modelFit)
 ```
 

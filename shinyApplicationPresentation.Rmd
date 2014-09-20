@@ -55,8 +55,8 @@ summary(modelFit)
 
 ---
 ## Diagnose Model Fit
-```{r diagnoseMultipleLinearRegressionModel, echo=TRUE}
-par(mfrow=c(2,2),bg="white")
+```{r diagnoseMultipleLinearRegressionModel, echo=TRUE, fig.width=12, fig.height=4}
+par(mfrow=c(1,4),bg="white")
 plot(modelFit)
 ```
 - Linear regression model residuals should be normally distributed
