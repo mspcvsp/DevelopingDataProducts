@@ -17,7 +17,10 @@ datasciencespm
 
 ---
 ## Shiny Application Overview
-
+```{r setChunkOptions, echo=FALSE}
+library(knitr)
+opts_chunk$set(fig.width=5.5, fig.height=5.5)
+```
 ![Shiny Application Flow Diagram](./assets/fig/flowDiagram.png)
 
 - Need: Simplify predictor variable selection process 
