@@ -54,10 +54,14 @@ summary(modelFit)
   car's fuel efficiency at the 5% level
 
 ---
-## Diagnose Model Fit
-```{r diagnoseMultipleLinearRegressionModel, echo=TRUE, fig.width=12, fig.height=4}
-par(mfrow=c(1,4),bg="white")
-plot(modelFit)
-```
-- Linear regression model residuals should be normally distributed
-  * [Normal Q-Q plot](http://socserv.socsci.mcmaster.ca/jfox/Courses/Brazil-2009/slides-handout.pdf) illustrates whether or not this condition is met
+## Summary
+- This presentation described a [Shiny application](https://datasciencespm.shinyapps.io/DevelopingDataProducts/) that provides the following functionality:
+  * Select & display predictor variables
+  * Perform exploratory data analysis
+  * Fit & diagnose a multiple linear regression model
+- Technical References:
+  * [Vaidyanathan, R. "Slidfy: Interactive Docs with R Markdown"](http://slidify.github.io/)
+  * [Raj, J. "Creating Slick HTML Presentations Using reveal.js"](http://www.sitepoint.com/creating-slick-html-presentations-using-reveal-js/)
+  * [Shiny by Rstudio Documentation](http://shiny.rstudio.com/)
+  * [Fox, J. "Regression Diagnostics"](http://socserv.socsci.mcmaster.ca/jfox/Courses/Brazil-2009/slides-handout.pdf)
+  * [Jacoby, W. "Regression III: Advanced Methods"](http://polisci.msu.edu/jacoby/icpsr/regress3/lectures/week3/11.Outliers.pdf)
