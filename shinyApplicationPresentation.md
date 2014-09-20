@@ -76,3 +76,6 @@ summary(modelFit)
 - `summary(modelFit)` includes the calculation of the [t-score P(>|t|)](http://www.ats.ucla.edu/stat/stata/output/reg_output.htm)
   * Predictors whose t-score is less than 0.05 are significant predictors of a
   car's fuel efficiency at the 5% level
+
+---
+## Diagnose Multiple Linear Regression Model
