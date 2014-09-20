@@ -73,9 +73,10 @@ summary(modelFit)
 ## Multiple R-squared:  0.84,	Adjusted R-squared:  0.823 
 ## F-statistic:   49 on 3 and 28 DF,  p-value: 2.91e-11
 ```
-- `summary(modelFit)` includes the calculation of the [t-score P(>|t|)](http://www.ats.ucla.edu/stat/stata/output/reg_output.htm)
-  * Predictors whose t-score is less than 0.05 are significant predictors of a
-  car's fuel efficiency at the 5% level
+- `summary(modelFit)` includes the calculation of the [t-score P(>|t|)](http://www.ats.ucla.edu/stat/stata/output/reg_output.htm) for each linear regression model
+coefficient
+  * Variables whose coefficient t-score is less than 0.05 are significant 
+  predictors of a car's fuel efficiency at the 5% level  
 
 ---
 ## Summary

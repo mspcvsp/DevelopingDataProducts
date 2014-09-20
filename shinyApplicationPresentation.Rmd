@@ -49,9 +49,10 @@ ggpairs(mtcars2[,c(1,4,6,9)])
 modelFit <- lm(mpg ~ hp + wt + am, data=mtcars2)
 summary(modelFit)
 ```
-- `summary(modelFit)` includes the calculation of the [t-score P(>|t|)](http://www.ats.ucla.edu/stat/stata/output/reg_output.htm)
-  * Predictors whose t-score is less than 0.05 are significant predictors of a
-  car's fuel efficiency at the 5% level
+- `summary(modelFit)` includes the calculation of the [t-score P(>|t|)](http://www.ats.ucla.edu/stat/stata/output/reg_output.htm) for each linear regression model
+coefficient
+  * Variables whose coefficient t-score is less than 0.05 are significant 
+  predictors of a car's fuel efficiency at the 5% level  
 
 ---
 ## Summary
