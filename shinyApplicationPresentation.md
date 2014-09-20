@@ -21,7 +21,7 @@ datasciencespm
 ![Shiny Application Flow Diagram](./assets/fig/flowDiagram.png)
 
 - Need: Simplify predictor variable selection process 
-- Approach: Implement [Shiny application](https://datasciencespm.shinyapps.io/DevelopingDataProducts/) that provides the following functionality:
+- Approach: Implement a [Shiny application](https://datasciencespm.shinyapps.io/DevelopingDataProducts/) that provides the following functionality:
   * Select & display predictor variables
   * Perform exploratory data analysis
   * Fit & diagnose a multiple linear regression model
